@@ -344,6 +344,11 @@ class AutoRoom(commands.Cog):
         """The users current playing game, otherwise the username format."""
         await self._save_room_name(ctx, autoroom_source, "game")
 
+    @name.command()
+    async def game(self, ctx: commands.Context, autoroom_source: discord.VoiceChannel):
+        """The users Truck for Phasmophobia"""
+        await self._save_room_name(ctx, autoroom_source, "truck")
+
     async def _save_room_name(
         self,
         ctx: commands.Context,
@@ -762,6 +767,8 @@ class AutoRoom(commands.Cog):
                                 if activity.type.value == 0:
                                     new_channel_name = activity.name
                                     break
+                        elif avc_settings["channel_name_type"] == "truck":
+                            new_channel_name = "{}'s Truck".format(member.display_name)
                     if not new_channel_name:
                         new_channel_name = "{}'s Room".format(member.display_name)
                     options = {}
