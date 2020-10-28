@@ -38,7 +38,7 @@ class AutoRoom(commands.Cog):
         super().__init__()
         self.bot = bot
         self.config = Config.get_conf(
-            self, identifier=1224364860, force_registration=True
+            self, identifier=1224364861, force_registration=True
         )
         self.config.register_global(**self.default_global_settings)
         self.config.register_guild(**self.default_guild_settings)
@@ -767,7 +767,7 @@ class AutoRoom(commands.Cog):
                                 if activity.type.value == 0:
                                     new_channel_name = activity.name
                                     break
-                        elif avc_settings["channel_name_type"] == "truck":
+                        if avc_settings["channel_name_type"] == "truck":
                             new_channel_name = "{}'s Truck".format(member.display_name)
                     if not new_channel_name:
                         new_channel_name = "{}'s Room".format(member.display_name)
