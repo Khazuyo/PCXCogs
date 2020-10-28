@@ -345,7 +345,7 @@ class AutoRoom(commands.Cog):
         await self._save_room_name(ctx, autoroom_source, "game")
 
     @name.command()
-    async def game(self, ctx: commands.Context, autoroom_source: discord.VoiceChannel):
+    async def truck(self, ctx: commands.Context, autoroom_source: discord.VoiceChannel):
         """The users Truck for Phasmophobia"""
         await self._save_room_name(ctx, autoroom_source, "truck")
 
